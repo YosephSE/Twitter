@@ -47,6 +47,7 @@ const Modal: React.FC<ModalProps> = ({
             <div className="relative p-10 flex-auto">{body}</div>
             <div className="flex flex-col gap-2 p-10">
                 <Button disabled={disabled} label={actionLabel} secondary fullwidth large onclick={handleSubmit} />
+                {footer}
             </div>
           </div>
         </div>
