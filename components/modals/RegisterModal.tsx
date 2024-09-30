@@ -25,13 +25,47 @@ const RegisterModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-        <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email} disabled={isLoading} type="email"/>
-        <Input placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} disabled={isLoading} type="password"/>
+      <Input
+        placeholder="Email"
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
+        disabled={isLoading}
+        type="email"
+      />
+      <Input
+        placeholder="Name"
+        onChange={(e) => setName(e.target.value)}
+        value={name}
+        disabled={isLoading}
+        type="text"
+      />
+      <Input
+        placeholder="Username"
+        onChange={(e) => setUsername(e.target.value)}
+        value={username}
+        disabled={isLoading}
+        type="text"
+      />
+      <Input
+        placeholder="Password"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+        disabled={isLoading}
+        type="password"
+      />
     </div>
-  )
+  );
   return (
-    <Modal disabled={isLoading} isOpen={LoginModal.isOpen} title="Login" actionLabel="Sign in" onClose={LoginModal.onClose} onSubmit={onSubmit}  body={bodyContent}/>
-  )
+    <Modal
+      disabled={isLoading}
+      isOpen={RegisterModal.isOpen}
+      title="Create an account"
+      actionLabel="Register"
+      onClose={RegisterModal.onClose}
+      onSubmit={onSubmit}
+      body={bodyContent}
+    />
+  );
 };
 
 export default RegisterModal;
