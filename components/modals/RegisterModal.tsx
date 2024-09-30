@@ -7,13 +7,15 @@ import useRegisterModal from "@/hooks/useRegisterModal";
 const RegisterModal = () => {
   const LoginModal = useLoginModal();
   const RegisterModal = useRegisterModal();
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
-      LoginModal.onClose();
+      RegisterModal.onClose();
     } catch (err) {
       console.log(err);
     } finally {
