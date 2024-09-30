@@ -23,6 +23,12 @@ const RegisterModal = () => {
     }
   }, [LoginModal]);
 
+  const onToggle = useCallback(() => {
+    if (isLoading) return;
+    RegisterModal.onClose();
+    LoginModal.onOpen();
+  }, [isLoading, LoginModal, RegisterModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Input
@@ -55,6 +61,18 @@ const RegisterModal = () => {
       />
     </div>
   );
+
+  const footerContent = (
+    <div className="text-neutral-400 text-center mt-4">
+      <p>
+        Already have an account?
+        <span className="text-white cursor-pointer hover:underline" onClick={onToggle}>
+          {" "}
+          Sign in
+        </span>
+      </p>
+    </div>
+  );
   return (
     <Modal
       disabled={isLoading}
@@ -64,6 +82,7 @@ const RegisterModal = () => {
       onClose={RegisterModal.onClose}
       onSubmit={onSubmit}
       body={bodyContent}
+      footer={footerContent}
     />
   );
 };
