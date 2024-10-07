@@ -59,3 +59,11 @@ model Comment {
   user User @relation(fields: [userId], references: [id])
   post Post @relation(fields: [postId], references: [id])
 }
+
+model Notification {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  body String
+  userId String @db.ObjectId
+  createdAt DateTime @default(now())
+  user User @relation(fields: [userId], references: [id])
+}
